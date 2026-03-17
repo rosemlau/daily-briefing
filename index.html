@@ -1,736 +1,776 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日简报 · 2026年3月16日</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>每日简报 · 2026年3月17日</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
 
-  :root {
-    --bg-primary: #0a0e1a;
-    --bg-secondary: #0f1526;
-    --bg-card: #141b2d;
-    --bg-card-hover: #192133;
-    --border: rgba(255,255,255,0.06);
-    --text-primary: #e8edf5;
-    --text-secondary: #8899aa;
-    --text-muted: #556677;
-    --weather-color: #00c8ff;
-    --work-color: #a78bfa;
-    --intl-color: #f97316;
-    --ai-color: #10b981;
-    --social-color: #ec4899;
-    --accent: #3b82f6;
-  }
+    :root {
+      --bg-deep: #0a0e1a;
+      --bg-card: #111827;
+      --bg-card2: #0f172a;
+      --border: rgba(255,255,255,0.07);
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-violet: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-teal: #14b8a6;
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    min-height: 100vh;
-    padding: 0;
-    overflow-x: hidden;
-  }
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(59,130,246,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(139,92,246,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.04) 0%, transparent 70%);
+    }
 
-  /* 背景网格纹理 */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-  }
+    /* ===== HEADER ===== */
+    .header {
+      padding: 36px 40px 28px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(15,23,42,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 20px 50px;
-    position: relative;
-    z-index: 1;
-  }
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-  /* ===== HEADER ===== */
-  .header {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-  }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(59,130,246,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
+      color: var(--accent-blue);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
 
-  .header-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(59,130,246,0.12);
-    border: 1px solid rgba(59,130,246,0.3);
-    border-radius: 20px;
-    padding: 5px 16px;
-    font-size: 12px;
-    color: #60a5fa;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
+    .header-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
 
-  .header-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: #3b82f6;
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
+    .header-title {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
 
-  .header h1 {
-    font-size: clamp(28px, 5vw, 44px);
-    font-weight: 700;
-    background: linear-gradient(135deg, #e8edf5 0%, #93c5fd 50%, #818cf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
+    .header-date {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
 
-  .header-meta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    color: var(--text-secondary);
-    font-size: 14px;
-  }
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
 
-  .header-meta span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+    .header-time {
+      font-size: 40px;
+      font-weight: 300;
+      color: #e2e8f0;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
 
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), rgba(139,92,246,0.4), transparent);
-    margin: 20px 0 30px;
-  }
+    .header-weekday {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: right;
+    }
 
-  /* ===== CARD BASE ===== */
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px 28px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.2s;
-  }
+    /* ===== MAIN GRID ===== */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    border-radius: 16px 16px 0 0;
-  }
+    /* ===== CARD BASE ===== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
 
-  .card:hover {
-    border-color: rgba(255,255,255,0.12);
-  }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
 
-  /* 各板块颜色 */
-  .card-weather::before { background: linear-gradient(90deg, var(--weather-color), #0ea5e9); }
-  .card-weather { border-color: rgba(0,200,255,0.15); }
+    .card-full { grid-column: 1 / -1; }
 
-  .card-work::before { background: linear-gradient(90deg, var(--work-color), #8b5cf6); }
-  .card-work { border-color: rgba(167,139,250,0.15); }
+    .card-header {
+      padding: 18px 22px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
 
-  .card-intl::before { background: linear-gradient(90deg, var(--intl-color), #fb923c); }
-  .card-intl { border-color: rgba(249,115,22,0.15); }
+    .card-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
 
-  .card-ai::before { background: linear-gradient(90deg, var(--ai-color), #34d399); }
-  .card-ai { border-color: rgba(16,185,129,0.15); }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      flex: 1;
+    }
 
-  .card-social::before { background: linear-gradient(90deg, var(--social-color), #f472b6); }
-  .card-social { border-color: rgba(236,72,153,0.15); }
+    .card-tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
 
-  /* ===== SECTION TITLE ===== */
-  .section-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+    .card-body { padding: 18px 22px; }
 
-  .section-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
+    /* ===== WEATHER CARD ===== */
+    .weather-card .card-header { border-color: rgba(6,182,212,0.2); }
+    .weather-card { border-color: rgba(6,182,212,0.15); }
+    .weather-icon-box { background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.25); }
+    .weather-title { color: var(--accent-cyan); }
+    .weather-tag { background: rgba(6,182,212,0.12); color: var(--accent-cyan); border: 1px solid rgba(6,182,212,0.2); }
 
-  .icon-weather { background: rgba(0,200,255,0.15); }
-  .icon-work    { background: rgba(167,139,250,0.15); }
-  .icon-intl    { background: rgba(249,115,22,0.15); }
-  .icon-ai      { background: rgba(16,185,129,0.15); }
-  .icon-social  { background: rgba(236,72,153,0.15); }
+    .weather-main {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
 
-  .section-title h2 {
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
+    .weather-big-icon {
+      font-size: 64px;
+      line-height: 1;
+      filter: drop-shadow(0 0 12px rgba(6,182,212,0.3));
+    }
 
-  .section-title .badge {
-    margin-left: auto;
-    font-size: 11px;
-    padding: 3px 10px;
-    border-radius: 10px;
-    font-weight: 500;
-  }
+    .weather-info { flex: 1; }
 
-  /* ===== WEATHER ===== */
-  .weather-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
+    .weather-temp {
+      font-size: 52px;
+      font-weight: 300;
+      color: #e2e8f0;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
 
-  .weather-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
+    .weather-temp span {
+      font-size: 22px;
+      color: var(--text-secondary);
+      letter-spacing: 0;
+    }
 
-  .weather-icon-big {
-    font-size: 64px;
-    line-height: 1;
-    filter: drop-shadow(0 0 20px rgba(0,200,255,0.4));
-  }
+    .weather-desc {
+      font-size: 18px;
+      color: var(--accent-cyan);
+      margin-top: 4px;
+    }
 
-  .weather-temp {
-    font-size: 52px;
-    font-weight: 300;
-    color: var(--weather-color);
-    line-height: 1;
-  }
+    .weather-range {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
 
-  .weather-temp sup {
-    font-size: 22px;
-    vertical-align: super;
-    opacity: 0.8;
-  }
+    .weather-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
 
-  .weather-desc {
-    font-size: 18px;
-    color: var(--text-secondary);
-    margin-top: 4px;
-  }
+    .weather-stat {
+      background: rgba(6,182,212,0.06);
+      border: 1px solid rgba(6,182,212,0.1);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
 
-  .weather-range {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
+    .weather-stat-label {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
 
-  .weather-stats {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+    .weather-stat-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--accent-cyan);
+    }
 
-  .weather-stat {
-    background: rgba(0,200,255,0.07);
-    border: 1px solid rgba(0,200,255,0.15);
-    border-radius: 10px;
-    padding: 10px 16px;
-    text-align: center;
-    min-width: 80px;
-  }
+    .weather-stat-unit {
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
 
-  .weather-stat .label {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-  }
+    .weather-advice {
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #6ee7b7;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
 
-  .weather-stat .value {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--weather-color);
-  }
+    .weather-advice::before {
+      content: '👔';
+      font-size: 16px;
+      flex-shrink: 0;
+    }
 
-  .weather-tip {
-    background: rgba(0,200,255,0.06);
-    border: 1px solid rgba(0,200,255,0.12);
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.6;
-  }
+    /* ===== WORK CARD ===== */
+    .work-card { border-color: rgba(245,158,11,0.15); }
+    .work-card .card-header { border-color: rgba(245,158,11,0.2); }
+    .work-icon-box { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); }
+    .work-title { color: var(--accent-amber); }
+    .work-tag { background: rgba(245,158,11,0.12); color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.2); }
 
-  /* ===== WORK ===== */
-  .work-empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
-    color: var(--text-muted);
-    text-align: center;
-  }
+    .work-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      gap: 12px;
+    }
 
-  .work-empty .icon { font-size: 36px; margin-bottom: 10px; opacity: 0.5; }
-  .work-empty .text { font-size: 15px; color: var(--text-secondary); }
-  .work-empty .hint {
-    margin-top: 8px;
-    font-size: 12px;
-    color: var(--text-muted);
-    background: rgba(167,139,250,0.08);
-    border: 1px solid rgba(167,139,250,0.15);
-    border-radius: 8px;
-    padding: 6px 14px;
-  }
+    .work-empty-icon {
+      font-size: 40px;
+      opacity: 0.5;
+    }
 
-  /* ===== NEWS LIST ===== */
-  .news-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+    .work-empty-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.6;
+    }
 
-  .news-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: background 0.2s, transform 0.15s;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.04);
-  }
+    .work-add-btn {
+      background: rgba(245,158,11,0.12);
+      border: 1px dashed rgba(245,158,11,0.35);
+      border-radius: 8px;
+      color: var(--accent-amber);
+      font-size: 13px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-  .news-item:hover {
-    background: rgba(255,255,255,0.05);
-    transform: translateX(4px);
-    border-color: rgba(255,255,255,0.08);
-  }
+    .work-add-btn:hover {
+      background: rgba(245,158,11,0.2);
+      border-color: rgba(245,158,11,0.6);
+    }
 
-  .news-num {
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
+    /* ===== NEWS CARDS ===== */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
 
-  .card-intl  .news-num { background: rgba(249,115,22,0.2);  color: #f97316; }
-  .card-ai    .news-num { background: rgba(16,185,129,0.2);  color: #10b981; }
-  .card-social .news-num { background: rgba(236,72,153,0.2); color: #ec4899; }
+    .news-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
 
-  .news-content { flex: 1; min-width: 0; }
+    .news-item:hover { background: rgba(255,255,255,0.04); }
 
-  .news-title {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: 3px;
-    color: var(--text-primary);
-  }
+    .news-num {
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
 
-  .news-meta {
-    font-size: 12px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+    .news-content { flex: 1; min-width: 0; }
 
-  .news-arrow {
-    font-size: 14px;
-    color: var(--text-muted);
-    flex-shrink: 0;
-    opacity: 0.5;
-    transition: opacity 0.2s;
-  }
+    .news-text {
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-  .news-item:hover .news-arrow { opacity: 1; }
+    .news-meta {
+      font-size: 11px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-  /* 热度标签 */
-  .hot-tag {
-    font-size: 10px;
-    padding: 2px 7px;
-    border-radius: 5px;
-    font-weight: 600;
-  }
+    .news-link-icon {
+      font-size: 10px;
+      opacity: 0.5;
+    }
 
-  .card-intl  .hot-tag { background: rgba(249,115,22,0.15);  color: #f97316; }
-  .card-ai    .hot-tag { background: rgba(16,185,129,0.15);  color: #10b981; }
-  .card-social .hot-tag { background: rgba(236,72,153,0.15); color: #ec4899; }
+    /* INT NEWS */
+    .int-card { border-color: rgba(59,130,246,0.15); }
+    .int-card .card-header { border-color: rgba(59,130,246,0.2); }
+    .int-icon-box { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); }
+    .int-title { color: var(--accent-blue); }
+    .int-tag { background: rgba(59,130,246,0.12); color: var(--accent-blue); border: 1px solid rgba(59,130,246,0.2); }
+    .int-num { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+    .int-card .news-item:hover { background: rgba(59,130,246,0.05); }
 
-  /* ===== FOOTER ===== */
-  .footer {
-    text-align: center;
-    margin-top: 40px;
-    color: var(--text-muted);
-    font-size: 12px;
-    line-height: 2;
-  }
+    /* AI NEWS */
+    .ai-card { border-color: rgba(139,92,246,0.15); }
+    .ai-card .card-header { border-color: rgba(139,92,246,0.2); }
+    .ai-icon-box { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); }
+    .ai-title { color: var(--accent-violet); }
+    .ai-tag { background: rgba(139,92,246,0.12); color: var(--accent-violet); border: 1px solid rgba(139,92,246,0.2); }
+    .ai-num { background: rgba(139,92,246,0.15); color: var(--accent-violet); }
+    .ai-card .news-item:hover { background: rgba(139,92,246,0.05); }
 
-  .footer .logo {
-    font-size: 18px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 4px;
-  }
+    /* VIDEO NEWS */
+    .video-card { border-color: rgba(244,63,94,0.15); }
+    .video-card .card-header { border-color: rgba(244,63,94,0.2); }
+    .video-icon-box { background: rgba(244,63,94,0.12); border: 1px solid rgba(244,63,94,0.25); }
+    .video-title { color: var(--accent-rose); }
+    .video-tag { background: rgba(244,63,94,0.12); color: var(--accent-rose); border: 1px solid rgba(244,63,94,0.2); }
+    .video-num { background: rgba(244,63,94,0.15); color: var(--accent-rose); }
+    .video-card .news-item:hover { background: rgba(244,63,94,0.05); }
 
-  /* ===== GLOW EFFECTS ===== */
-  .glow-weather { box-shadow: 0 0 40px rgba(0,200,255,0.04); }
-  .glow-work    { box-shadow: 0 0 40px rgba(167,139,250,0.04); }
-  .glow-intl    { box-shadow: 0 0 40px rgba(249,115,22,0.04); }
-  .glow-ai      { box-shadow: 0 0 40px rgba(16,185,129,0.04); }
-  .glow-social  { box-shadow: 0 0 40px rgba(236,72,153,0.04); }
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 20px 24px 32px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 600px) {
-    .card { padding: 18px 16px; }
-    .weather-main { flex-direction: column; align-items: flex-start; }
-    .weather-stats { gap: 10px; }
-    .weather-stat { min-width: 70px; padding: 8px 12px; }
-  }
-</style>
+    .footer-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent);
+      margin: 0 auto 12px;
+    }
+
+    /* ===== DECORATIVE LINES ===== */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, currentColor, transparent);
+      opacity: 0.15;
+    }
+
+    .weather-card::before { color: var(--accent-cyan); }
+    .work-card::before { color: var(--accent-amber); }
+    .int-card::before { color: var(--accent-blue); }
+    .ai-card::before { color: var(--accent-violet); }
+    .video-card::before { color: var(--accent-rose); }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+    @media (max-width: 768px) {
+      .main { grid-template-columns: 1fr; padding: 16px; gap: 14px; }
+      .card-full { grid-column: 1; }
+      .header { padding: 20px 16px 16px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .header-time { font-size: 32px; }
+      .weather-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ===== HEADER ===== -->
-  <div class="header">
-    <div class="header-badge">📡 WorkBuddy Daily Briefing</div>
-    <h1>每日智能简报</h1>
-    <div class="header-meta">
-      <span>📅 2026年3月16日</span>
-      <span>📆 星期一</span>
-      <span>🌸 丙午年正月廿八</span>
-      <span>⏰ 09:00 AM</span>
-    </div>
-    <div class="divider"></div>
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-badge">Daily Briefing · Live</div>
+    <div class="header-title">每日简报</div>
+    <div class="header-date">2026年3月17日 &nbsp;|&nbsp; 深圳</div>
   </div>
+  <div class="header-right">
+    <div class="header-time" id="clock">09:00</div>
+    <div class="header-weekday">星期二 &nbsp;·&nbsp; 第11周</div>
+  </div>
+</header>
 
-  <!-- ===== 1. 天气 ===== -->
-  <div class="card card-weather glow-weather">
-    <div class="section-title">
-      <div class="section-icon icon-weather">☁️</div>
-      <h2 style="color: var(--weather-color)">深圳天气</h2>
-      <span class="badge" style="background:rgba(0,200,255,0.1);color:#00c8ff;border:1px solid rgba(0,200,255,0.2);">实时</span>
+<main class="main">
+
+  <!-- ===== 天气 ===== -->
+  <div class="card weather-card">
+    <div class="card-header">
+      <div class="card-icon weather-icon-box">🌤️</div>
+      <div class="card-title weather-title">深圳今日天气</div>
+      <span class="card-tag weather-tag">实时</span>
     </div>
-
-    <div class="weather-main">
-      <div class="weather-left">
-        <div class="weather-icon-big">☀️</div>
-        <div>
-          <div class="weather-temp">18<sup>°C</sup></div>
-          <div class="weather-desc">晴</div>
-          <div class="weather-range">18℃ ~ 24℃</div>
+    <div class="card-body">
+      <div class="weather-main">
+        <div class="weather-big-icon">⛅</div>
+        <div class="weather-info">
+          <div class="weather-temp">21<span>°C</span></div>
+          <div class="weather-desc">多云</div>
+          <div class="weather-range">最高 25°C &nbsp;/&nbsp; 最低 18°C</div>
         </div>
       </div>
       <div class="weather-stats">
         <div class="weather-stat">
-          <div class="label">💧 湿度</div>
-          <div class="value">77%</div>
+          <div class="weather-stat-label">湿度</div>
+          <div class="weather-stat-value">71<span class="weather-stat-unit">%</span></div>
         </div>
         <div class="weather-stat">
-          <div class="label">🌬️ 风力</div>
-          <div class="value">东风 2级</div>
+          <div class="weather-stat-label">风力</div>
+          <div class="weather-stat-value">东北风<br><span style="font-size:12px">2级</span></div>
         </div>
         <div class="weather-stat">
-          <div class="label">🌿 空气</div>
-          <div class="value">优</div>
+          <div class="weather-stat-label">空气质量</div>
+          <div class="weather-stat-value" style="color:#10b981">优<br><span class="weather-stat-unit">AQI 14</span></div>
         </div>
         <div class="weather-stat">
-          <div class="label">☀️ 紫外线</div>
-          <div class="value">很弱</div>
+          <div class="weather-stat-label">紫外线</div>
+          <div class="weather-stat-value" style="color:#f59e0b">强</div>
+        </div>
+      </div>
+      <div class="weather-advice">
+        今日多云，气温适宜，早晚稍凉建议穿薄外套或长袖衬衫，白天可着轻薄春装。外出请做好防晒，紫外线较强。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 工作安排 ===== -->
+  <div class="card work-card">
+    <div class="card-header">
+      <div class="card-icon work-icon-box">📋</div>
+      <div class="card-title work-title">今日工作安排</div>
+      <span class="card-tag work-tag">待办</span>
+    </div>
+    <div class="card-body">
+      <div class="work-empty">
+        <div class="work-empty-icon">🗓️</div>
+        <div class="work-empty-text">
+          今日暂无工作安排<br>
+          <span style="font-size:12px;opacity:0.6">点击下方按钮手动添加日程</span>
+        </div>
+        <div class="work-add-btn">
+          <span>＋</span> 手动添加安排
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="weather-tip">
-      <span>👔</span>
-      <span><strong>穿衣建议：</strong>今日深圳晴天，早晚温差适中，最低18℃最高24℃，湿度较高。建议穿轻薄外套或长袖，空气质量优，适合户外活动。紫外线很弱，无需特别防晒。</span>
+  <!-- ===== 国际热点 ===== -->
+  <div class="card int-card card-full">
+    <div class="card-header">
+      <div class="card-icon int-icon-box">🌍</div>
+      <div class="card-title int-title">国际热点资讯</div>
+      <span class="card-tag int-tag">今日更新</span>
+    </div>
+    <div class="card-body">
+      <div class="news-list">
+
+        <a class="news-item" href="https://world.huanqiu.com/" target="_blank" rel="noopener">
+          <div class="news-num int-num">01</div>
+          <div class="news-content">
+            <div class="news-text">美国拟组建霍尔木兹海峡"护航联盟"，伊朗紧张局势持续升级</div>
+            <div class="news-meta">
+              <span>🌐 环球网</span>
+              <span class="news-link-icon">↗</span>
+              <span>美伊关系 · 中东局势</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-17/doc-inhrfwqa9587782.shtml" target="_blank" rel="noopener">
+          <div class="news-num int-num">02</div>
+          <div class="news-content">
+            <div class="news-text">布伦特原油连续三日收于100美元以上，WTI突破94美元，油价高位震荡</div>
+            <div class="news-meta">
+              <span>📈 新浪财经</span>
+              <span class="news-link-icon">↗</span>
+              <span>能源市场 · 国际油价</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-17/doc-inhrfwqa9587782.shtml" target="_blank" rel="noopener">
+          <div class="news-num int-num">03</div>
+          <div class="news-content">
+            <div class="news-text">中美经贸磋商巴黎结束，双方就关税及非关税措施延期取得初步共识</div>
+            <div class="news-meta">
+              <span>💼 新浪财经</span>
+              <span class="news-link-icon">↗</span>
+              <span>中美关系 · 国际贸易</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-17/doc-inhrfwqa9587782.shtml" target="_blank" rel="noopener">
+          <div class="news-num int-num">04</div>
+          <div class="news-content">
+            <div class="news-text">现货黄金失守5000美元/盎司，纽约期金仍维持5020美元高位，贵金属分化</div>
+            <div class="news-meta">
+              <span>💰 新浪财经</span>
+              <span class="news-link-icon">↗</span>
+              <span>贵金属 · 国际金融</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="news-item" href="https://world.huanqiu.com/" target="_blank" rel="noopener">
+          <div class="news-num int-num">05</div>
+          <div class="news-content">
+            <div class="news-text">秘鲁一总统候选人因交通事故丧生，大选进程面临不确定性</div>
+            <div class="news-meta">
+              <span>🗳️ 环球网</span>
+              <span class="news-link-icon">↗</span>
+              <span>拉美政治 · 大选动态</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
     </div>
   </div>
 
-  <!-- ===== 2. 工作安排 ===== -->
-  <div class="card card-work glow-work">
-    <div class="section-title">
-      <div class="section-icon icon-work">📋</div>
-      <h2 style="color: var(--work-color)">今日工作安排</h2>
-      <span class="badge" style="background:rgba(167,139,250,0.1);color:#a78bfa;border:1px solid rgba(167,139,250,0.2);">星期一</span>
+  <!-- ===== AI热点 ===== -->
+  <div class="card ai-card">
+    <div class="card-header">
+      <div class="card-icon ai-icon-box">🤖</div>
+      <div class="card-title ai-title">AI 热点资讯</div>
+      <span class="card-tag ai-tag">今日前沿</span>
     </div>
-    <div class="work-empty">
-      <div class="icon">📝</div>
-      <div class="text">暂无安排，请手动添加</div>
-      <div class="hint">💡 可在此处添加今日待办事项和会议安排</div>
-    </div>
-  </div>
+    <div class="card-body">
+      <div class="news-list">
 
-  <!-- ===== 3. 国际热点 ===== -->
-  <div class="card card-intl glow-intl">
-    <div class="section-title">
-      <div class="section-icon icon-intl">🌍</div>
-      <h2 style="color: var(--intl-color)">国际热点资讯</h2>
-      <span class="badge" style="background:rgba(249,115,22,0.1);color:#f97316;border:1px solid rgba(249,115,22,0.2);">今日热点</span>
-    </div>
-    <div class="news-list">
-
-      <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-16/doc-inhrctqw6057491.shtml" target="_blank" rel="noopener">
-        <span class="news-num">1</span>
-        <div class="news-content">
-          <div class="news-title">国际能源署宣布释放创纪录石油储备2.717亿桶，补充伊朗战事供应缺口</div>
-          <div class="news-meta">
-            <span class="hot-tag">🔥 热点</span>
-            <span>新浪财经 · 03-16</span>
+        <a class="news-item" href="https://k.sina.cn/article_7857201856_1d45362c001903ab34.html" target="_blank" rel="noopener">
+          <div class="news-num ai-num">01</div>
+          <div class="news-content">
+            <div class="news-text">中国AI核心产业规模超1.2万亿元，企业超6200家，开源大模型下载量全球居首</div>
+            <div class="news-meta">
+              <span>🇨🇳 新浪科技</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://k.sina.cn/article_7857201856_1d45362c0019039bkk.html" target="_blank" rel="noopener">
-        <span class="news-num">2</span>
-        <div class="news-content">
-          <div class="news-title">伊朗宣布对美以发动大规模打击，革命卫队称已发射约700枚导弹和3600架无人机</div>
-          <div class="news-meta">
-            <span class="hot-tag">🔥 突发</span>
-            <span>新浪国际 · 03-16</span>
+        <a class="news-item" href="https://news.qq.com/rain/a/20260316A03KYH00" target="_blank" rel="noopener">
+          <div class="news-num ai-num">02</div>
+          <div class="news-content">
+            <div class="news-text">马斯克宣布Terafab AI芯片制造工厂7天后启动，专供特斯拉FSD自动驾驶</div>
+            <div class="news-meta">
+              <span>🚀 腾讯新闻</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-16/doc-inhrctqw6057491.shtml" target="_blank" rel="noopener">
-        <span class="news-num">3</span>
-        <div class="news-content">
-          <div class="news-title">以色列袭击伊朗200多个目标并计划扩大行动，征召45万预备役人员</div>
-          <div class="news-meta">
-            <span class="hot-tag">🔥 军事</span>
-            <span>新浪财经 · 03-16</span>
+        <a class="news-item" href="https://k.sina.cn/article_7857201856_1d45362c001903ahe4.html" target="_blank" rel="noopener">
+          <div class="news-num ai-num">03</div>
+          <div class="news-content">
+            <div class="news-text">OpenAI任命前英特尔高管统筹"星际之门"算力计划，吉瓦级服务器扩张提速</div>
+            <div class="news-meta">
+              <span>⚡ 新浪科技</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-16/doc-inhrctqw6057491.shtml" target="_blank" rel="noopener">
-        <span class="news-num">4</span>
-        <div class="news-content">
-          <div class="news-title">比特币突破73000美元创新高，以太坊日内涨近5%，加密货币市场全线上涨</div>
-          <div class="news-meta">
-            <span class="hot-tag">📈 金融</span>
-            <span>新浪财经 · 03-16</span>
+        <a class="news-item" href="https://k.sina.cn/article_7857201856_1d45362c001903ab34.html" target="_blank" rel="noopener">
+          <div class="news-num ai-num">04</div>
+          <div class="news-content">
+            <div class="news-text">Meta计划投资270亿美元用于AI基础设施建设，押注Nebius算力项目</div>
+            <div class="news-meta">
+              <span>💡 新浪AI</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://finance.sina.com.cn/headline/2026-03-16/doc-inhrctqw6057491.shtml" target="_blank" rel="noopener">
-        <span class="news-num">5</span>
-        <div class="news-content">
-          <div class="news-title">美国对60个经济体发起301调查，以"强迫劳动"为由，中方明确反对</div>
-          <div class="news-meta">
-            <span class="hot-tag">📊 贸易</span>
-            <span>新浪财经 · 03-16</span>
+        <a class="news-item" href="https://k.sina.cn/article_7857201856_1d45362c001903ab34.html" target="_blank" rel="noopener">
+          <div class="news-num ai-num">05</div>
+          <div class="news-content">
+            <div class="news-text">追觅"瑶台"AI算力基站成功发射，人类首个AI算力站进入太空轨道</div>
+            <div class="news-meta">
+              <span>🛸 新浪AI</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
+      </div>
     </div>
   </div>
 
-  <!-- ===== 4. AI热点 ===== -->
-  <div class="card card-ai glow-ai">
-    <div class="section-title">
-      <div class="section-icon icon-ai">🤖</div>
-      <h2 style="color: var(--ai-color)">AI 热点资讯</h2>
-      <span class="badge" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2);">今日动态</span>
+  <!-- ===== 短视频热点 ===== -->
+  <div class="card video-card">
+    <div class="card-header">
+      <div class="card-icon video-icon-box">📱</div>
+      <div class="card-title video-title">短视频平台热点</div>
+      <span class="card-tag video-tag">实时榜单</span>
     </div>
-    <div class="news-list">
+    <div class="card-body">
+      <div class="news-list">
 
-      <a class="news-item" href="http://k.sina.com.cn/article_5953741034_162dee0ea06703bvvq.html" target="_blank" rel="noopener">
-        <span class="news-num">1</span>
-        <div class="news-content">
-          <div class="news-title">记者实测阿里版"龙虾"JVS CLAW：对比OpenClaw的"安全"焦虑，国产版如何破解？</div>
-          <div class="news-meta">
-            <span class="hot-tag">🔥 热议</span>
-            <span>每日经济新闻 · 03-16</span>
+        <a class="news-item" href="https://www.douyin.com/search/%E4%B8%AD%E7%BE%8E%E7%BB%8F%E8%B4%B8%E7%A3%8B%E5%95%86%E5%9C%A8%E6%B3%95%E5%9B%BD%E5%B7%B4%E9%BB%8E%E7%BB%93%E6%9D%9F" target="_blank" rel="noopener">
+          <div class="news-num video-num">01</div>
+          <div class="news-content">
+            <div class="news-text">#中美经贸磋商在法国巴黎结束 热度1204万，双方初步共识引发广泛讨论</div>
+            <div class="news-meta">
+              <span>🎵 抖音热搜 No.1</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="http://finance.sina.com.cn/stock/t/2026-03-15/doc-inhrawmh6378044.shtml" target="_blank" rel="noopener">
-        <span class="news-num">2</span>
-        <div class="news-content">
-          <div class="news-title">AI大模型遭"GEO投毒"，有商家报价6600元包年，业内揭秘语料污染黑产</div>
-          <div class="news-meta">
-            <span class="hot-tag">⚠️ 安全</span>
-            <span>红星新闻 · 03-16</span>
+        <a class="news-item" href="https://www.douyin.com/search/%E5%BF%AB%E8%88%9F%E5%8D%81%E4%B8%80%E5%8F%B7%E9%81%A5%E4%B8%83%E8%BF%90%E8%BD%BD%E7%81%AB%E7%AE%AD%E5%8F%91%E5%B0%84%E6%88%90%E5%8A%9F" target="_blank" rel="noopener">
+          <div class="news-num video-num">02</div>
+          <div class="news-content">
+            <div class="news-text">#快舟十一号遥七运载火箭发射成功 热度1123万，航天强国话题持续升温</div>
+            <div class="news-meta">
+              <span>🚀 抖音热搜 No.3</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://www.aibase.com/zh/daily" target="_blank" rel="noopener">
-        <span class="news-num">3</span>
-        <div class="news-content">
-          <div class="news-title">xAI发布Grok 4.20：推理性能大幅提升，"不幻觉率"78%创行业纪录</div>
-          <div class="news-meta">
-            <span class="hot-tag">🚀 发布</span>
-            <span>AIBase · 03-16</span>
+        <a class="news-item" href="https://www.douyin.com/search/%E6%BC%82%E7%99%BD%E9%B8%A1%E7%88%AA%E4%BC%81%E4%B8%9A%E8%87%B4%E6%AD%89" target="_blank" rel="noopener">
+          <div class="news-num video-num">03</div>
+          <div class="news-content">
+            <div class="news-text">#漂白鸡爪企业致歉 热度1040万，食品安全315曝光余震持续发酵</div>
+            <div class="news-meta">
+              <span>🍗 抖音热搜 No.5</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://www.aibase.com/zh/daily" target="_blank" rel="noopener">
-        <span class="news-num">4</span>
-        <div class="news-content">
-          <div class="news-title">OpenAI Sora2 API重磅更新：角色一致性功能上线，支持20秒长视频横竖屏双输出</div>
-          <div class="news-meta">
-            <span class="hot-tag">🎬 多模态</span>
-            <span>AIBase · 03-16</span>
+        <a class="news-item" href="https://www.xiaohongshu.com/search_result?keyword=%E6%97%85%E8%A1%8C%E6%8B%8D%E7%85%A7%E5%A7%BF%E5%8A%BF" target="_blank" rel="noopener">
+          <div class="news-num video-num">04</div>
+          <div class="news-content">
+            <div class="news-text">#用万能旅行拍照姿势美美出片 小红书热度918万，春日出游拍照攻略爆火</div>
+            <div class="news-meta">
+              <span>📕 小红书热榜 No.1</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
-      <a class="news-item" href="https://news.cctv.com/2026/01/28/ARTIEvCAzmKkHNEUbwOAS6et260128.shtml" target="_blank" rel="noopener">
-        <span class="news-num">5</span>
-        <div class="news-content">
-          <div class="news-title">全球首个！中国侵入式脑机接口医疗器械获批上市，临床应用进入全新元年</div>
-          <div class="news-meta">
-            <span class="hot-tag">🧠 突破</span>
-            <span>央视网 · 03-16</span>
+        <a class="news-item" href="https://www.douyin.com/search/%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%83%BD%E6%89%93%E7%BD%91%E7%90%83%E4%BA%86" target="_blank" rel="noopener">
+          <div class="news-num video-num">05</div>
+          <div class="news-content">
+            <div class="news-text">#人形机器人能打网球了 热度908万，具身智能最新突破引爆视频号讨论</div>
+            <div class="news-meta">
+              <span>📱 抖音/视频号 No.15</span>
+              <span class="news-link-icon">↗</span>
+            </div>
           </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
+        </a>
 
+      </div>
     </div>
   </div>
 
-  <!-- ===== 5. 短视频热点 ===== -->
-  <div class="card card-social glow-social">
-    <div class="section-title">
-      <div class="section-icon icon-social">📱</div>
-      <h2 style="color: var(--social-color)">短视频平台热点</h2>
-      <span class="badge" style="background:rgba(236,72,153,0.1);color:#ec4899;border:1px solid rgba(236,72,153,0.2);">实时榜单</span>
-    </div>
-    <div class="news-list">
+</main>
 
-      <a class="news-item" href="https://www.douyin.com/search/315%E6%9B%9D%E5%85%89%E5%90%8D%E5%8D%95" target="_blank" rel="noopener">
-        <span class="news-num">1</span>
-        <div class="news-content">
-          <div class="news-title">【抖音 🔥1210万】315曝光名单 · 食品安全再迎强监管风暴</div>
-          <div class="news-meta">
-            <span class="hot-tag">🎬 抖音</span>
-            <span>抖音热搜榜 · 今日榜首</span>
-          </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
-
-      <a class="news-item" href="https://www.douyin.com/search/%E4%B8%AD%E7%BE%8E%E7%BB%8F%E8%B4%B8%E7%A3%8B%E5%95%86%E5%BC%80%E5%A7%8B%E4%B8%BE%E8%A1%8C" target="_blank" rel="noopener">
-        <span class="news-num">2</span>
-        <div class="news-content">
-          <div class="news-title">【抖音 🔥966万】中美经贸磋商正式开始举行，全网关注谈判走向</div>
-          <div class="news-meta">
-            <span class="hot-tag">🎬 抖音</span>
-            <span>抖音热搜榜 · 热度飙升</span>
-          </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
-
-      <a class="news-item" href="https://www.douyin.com/search/%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%A4%9C%E8%B7%91" target="_blank" rel="noopener">
-        <span class="news-num">3</span>
-        <div class="news-content">
-          <div class="news-title">【抖音 🔥855万】人形机器人夜跑备战半马 · 具身智能走入真实场景</div>
-          <div class="news-meta">
-            <span class="hot-tag">🎬 抖音</span>
-            <span>抖音热搜榜 · 科技热议</span>
-          </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
-
-      <a class="news-item" href="https://tophub.today/n/L4MdA5ldxD" target="_blank" rel="noopener">
-        <span class="news-num">4</span>
-        <div class="news-content">
-          <div class="news-title">【小红书 🔥911万】用万能旅行拍照姿势美美出片 · 春日出游打卡攻略爆火</div>
-          <div class="news-meta">
-            <span class="hot-tag">📕 小红书</span>
-            <span>小红书热榜 · 今日榜首</span>
-          </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
-
-      <a class="news-item" href="https://tophub.today/n/L4MdA5ldxD" target="_blank" rel="noopener">
-        <span class="news-num">5</span>
-        <div class="news-content">
-          <div class="news-title">【小红书 🔥900万】耗时三年拍下古诗词里的中国 · 唯美影像引发文化共鸣</div>
-          <div class="news-meta">
-            <span class="hot-tag">📕 小红书</span>
-            <span>小红书热榜 · 文化热点</span>
-          </div>
-        </div>
-        <span class="news-arrow">→</span>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- ===== FOOTER ===== -->
-  <div class="footer">
-    <div class="logo">⚡ WorkBuddy</div>
-    <div>每日简报由 WorkBuddy 智能助手自动生成</div>
-    <div>数据来源：深圳气象局 · 新浪财经 · AIBase · 抖音热搜 · 小红书热榜</div>
-    <div style="margin-top:8px;opacity:0.5;">© 2026 WorkBuddy Daily Briefing · 仅供参考</div>
-  </div>
-
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-divider"></div>
+  数据由 WorkBuddy 自动采集整理 &nbsp;·&nbsp; 更新时间：2026年3月17日 09:00 &nbsp;·&nbsp; 仅供参考
 </div>
+
+<script>
+  // 实时时钟
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('clock').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 10000);
+</script>
+
 </body>
 </html>
